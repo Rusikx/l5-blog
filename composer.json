@@ -1,0 +1,12 @@
+{
+  "name": "IdenGit/l5-blog",
+  "description": "laravel5 blog",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Denis Khainazarov",
+      "email": "wvsden@gmail.com"
+    }
+  ]
+}
