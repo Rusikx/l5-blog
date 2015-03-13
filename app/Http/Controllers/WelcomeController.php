@@ -1,5 +1,9 @@
 <?php namespace App\Http\Controllers;
 
+use App\Models\Post;
+use \View;
+
+
 class WelcomeController extends Controller {
 
 	/*
@@ -18,10 +22,10 @@ class WelcomeController extends Controller {
 	 *
 	 * @return void
 	 */
-	public function __construct()
+	/*public function __construct()
 	{
 		$this->middleware('guest');
-	}
+	}*/
 
 	/**
 	 * Show the application welcome screen to the user.
@@ -30,7 +34,8 @@ class WelcomeController extends Controller {
 	 */
 	public function index()
 	{
-		return view('welcome');
+		$posts =  Post::all();
+		return View::make('post.public')->with('posts',$posts);
 	}
 
 }
