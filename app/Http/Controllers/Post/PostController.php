@@ -50,7 +50,7 @@ class PostController extends Controller{
         $post->title = $request->get('title');
         $post->content = $request->get('content');
         $post->save();
-        return View::make('post.created');
+        return $this->show($request,$id);
     }
 
     public function destroy(Request $request,$id){

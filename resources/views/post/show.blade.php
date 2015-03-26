@@ -20,5 +20,15 @@
                 </div>
             </div>
     </div>
-
+    <div  class="container-fluid">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <span class="label label-primary">Comments</span>
+            </div>
+        </div>
+        @foreach( $post->comments as $comment )
+            @include('comment.post-row',['comment'=>$comment])
+        @endforeach
+        @include('comment.post-create',['post_id'=>$post->id])
+    </div>
 @endsection
