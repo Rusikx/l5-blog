@@ -16,6 +16,7 @@ Route::get('/', 'WelcomeController@index');
 Route::get('home', 'HomeController@index');
 
 Route::resource('post','Post\PostController');
+Route::resource('comment','Post\CommentsController');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',

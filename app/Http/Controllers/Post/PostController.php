@@ -5,6 +5,7 @@ use App\Models\Post;
 use \View;
 use \Redirect;
 use Illuminate\Http\Request;
+use \Auth;
 
 class PostController extends Controller{
 
@@ -29,21 +30,21 @@ class PostController extends Controller{
     }
 
     public function show(Request $request,$id){
-        return Post::find($id);
+        $post = Post::find($id);
+        return view('post.show',['post'=>$post]);
     }
 
     public function edit(Request $request,$id){
         $post = Post::find($id);
-        if(\Auth::getUser()->id !== $post->user->id){
+        if(Auth::getUser()->id !== $post->user->id){
             return Redirect::back();
         }
         return View::make('post.edit')->with('post', $post);
-
     }
 
     public function update(Request $request,$id){
         $post =  Post::find($id);
-        if(\Auth::getUser()->id !== $post->user->id){
+        if(Auth::getUser()->id !== $post->user->id){
             return Redirect::back();
         }
         $post->title = $request->get('title');
@@ -54,12 +55,11 @@ class PostController extends Controller{
 
     public function destroy(Request $request,$id){
         $post = Post::find($id);
-        if(\Auth::getUser()->id !== $post->user->id){
+        if(Auth::getUser()->id !== $post->user->id){
             return false;
         }
         $post = Post::find($id);
         $post->delete();
-
     }
 
 }
