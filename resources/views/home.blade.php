@@ -10,6 +10,10 @@
 				<div class="panel-body">
 					You are logged in!
 				</div>
+
+                <div class="panel-body">
+                    <a href="art">My blog</a>
+                </div>
 			</div>
 		</div>
 	</div>
