@@ -67,7 +67,7 @@ class CommentsController extends Controller {
 	public function show($id)
 	{
 		$comment = Comment::find($id);
-		return $comment;
+		return view('comment.show',['comment'=>$comment]);
 	}
 
 	/**
@@ -95,7 +95,7 @@ class CommentsController extends Controller {
 		$comment->post_id = Input::get('post_id');
 		$comment->content = Input::get('content');
 		$comment->save();
-		return $this->show($id);
+		return $this->index();
 	}
 
 	/**
