@@ -15,11 +15,17 @@ Route::get('/', 'WelcomeController@index');
 
 Route::get('home', 'HomeController@index');
 
-Route::resource('post','Post\PostController');
-Route::resource('comment','Post\CommentsController');
+Route::resource('post', 'Post\PostController');
+Route::resource('comment', 'Post\CommentsController');
 
-Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
-]);
+Route::controllers(
+    [
+        'auth' => 'Auth\AuthController',
+        'password' => 'Auth\PasswordController',
+    ]
+);
 
+Route::get(
+    'posts/success',
+    ['uses' => 'Post\PostController@show_created_message', 'as' => 'posts.show_created_message']
+);
